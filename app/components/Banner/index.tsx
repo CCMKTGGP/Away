@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
+
 export default function Banner() {
   return (
     <div className="my-4 w-full flex items-center justify-center gap-8 p-6 bg-accent border border-accent rounded-[16px]">
