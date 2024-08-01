@@ -7,7 +7,7 @@ import Tabs from "../components/Tabs/index";
 import Form from "../components/AccountForm";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import PlanDetails from "../components/planCardapi";
+import PlanDetails from "../components/plancard";
 
 const Page = () => {
   const router = useRouter();

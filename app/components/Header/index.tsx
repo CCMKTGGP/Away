@@ -45,14 +45,6 @@ export default function Header() {
                   My Account
                 </Link>
               </div>
-              <div className="my-2">
-                <Link
-                  href="/billing"
-                  className="text-lg leading-lg text-secondaryHeading hover:text-heading font-medium"
-                >
-                  Billing
-                </Link>
-              </div>
               <div className="flex justify-center my-4">
                 <Button
                   buttonText="Logout"
