@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PlanCard from "./plancard/index";
+import PlanCard from "./PlanCard/index";
 
 interface Plan {
   name: string;
