@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button";
+
 interface Plan {
   name: string;
   features: string[];
@@ -24,6 +25,27 @@ const PlanDetails: React.FC = () => {
 
     fetchPlans();
   }, []);
+  //API function to trigger a checkout session depending on the button selected 
+  const handleUpgrade = async (plan: string) => {
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ plan }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        window.location.href = data.sessionUrl;
+      } else {
+        console.error("Error creating checkout session:", data.error);
+      }
+    } catch (error) {
+      console.error('Request failed:', error);
+    }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -56,14 +78,12 @@ const PlanDetails: React.FC = () => {
                 </div>
               ))}
             </div>
-            {isPro ? (
+            {isPro && (
               <Button
                 buttonText="Upgrade Now"
                 buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-accent hover:bg-hover text-white hover:text-accent text-base leading-base"
-                onClick={() => console.log("Call the stripe api here!")}
+                onClick={() => handleUpgrade(name.toLowerCase())}
               />
-            ) : (
-              ""
             )}
           </div>
         );
