@@ -47,8 +47,9 @@ export async function POST(req: NextRequest) {
       ],
       mode,
        billing_address_collection: 'required',
-      success_url: `${process.env.BASE_URL}/success`,
-      cancel_url: `${process.env.BASE_URL}/cancel`,
+      success_url: `${process.env.BASE_URL}/payment-success`,
+      cancel_url: `${process.env.BASE_URL}/account`,
+
     });
 
     // Return the session URL to the frontend
