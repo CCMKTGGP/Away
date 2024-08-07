@@ -5,8 +5,10 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import { useRouter } from "next/navigation";
 import UserDetails from "../components/UserDetails";
+import { useUserContext } from "@/app/context/userContext";
 
 export default function ViewCalendar() {
+  const { user } = useUserContext();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [events, setEvents] = useState([]);
@@ -52,7 +54,7 @@ export default function ViewCalendar() {
     <div className="w-full h-[100vh] overflow-y-auto bg-gradient-to-br from-gradientColor1 to-gradientColor2 py-4 px-8">
       <Header />
       <div className="w-[90%] mx-auto">
-        <Banner />
+        {!user?.isPaidUser && <Banner />}
         <div className="my-12 flex items-start gap-4">
           <div className="w-[40%]">
             <UserDetails

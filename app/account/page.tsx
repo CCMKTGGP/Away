@@ -8,10 +8,12 @@ import Form from "../components/AccountForm";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import PlanDetails from "../components/PlanCard";
+import { useUserContext } from "@/app/context/userContext";
 
 const Page = () => {
   const router = useRouter();
   const { data: session } = useSession();
+  const { user } = useUserContext();
 
   useEffect(() => {
     if (!session?.user) {
@@ -25,7 +27,7 @@ const Page = () => {
     <main className="w-full h-[100vh] overflow-y-auto bg-gradient-to-br from-gradientColor1 to-gradientColor2 py-4 px-8">
       <Header />
       <div className="mx-20 mb-14">
-        <Banner />
+      {!user?.isPaidUser && <Banner />}
       </div>
       <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab} />
       <div className="mx-20 my-8">

@@ -19,3 +19,11 @@ export default function Banner() {
     </div>
   );
 }
+
+export default function Banner() {
+  return (
+    <BannerContextProvider>
+      <BannerContent />
+    </BannerContextProvider>
+  );
+}
