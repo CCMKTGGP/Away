@@ -20,7 +20,7 @@ export default function UserDetails(props: IUserDetailsProps) {
               Welcome {session?.user?.name}
             </h1>
             <p className="text-base leading-base text-secondaryHeading">
-              You are currently on the free version of Away me
+              You are currently using the free version of Away me
             </p>
           </div>
           <div className="inline">
