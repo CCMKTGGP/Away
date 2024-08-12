@@ -18,11 +18,11 @@ export default function SignupPage() {
     <div className="w-full overflow-y-auto bg-gradient-to-br from-gradientColor1 to-gradientColor2 py-4">
       <Cards
         message="Join Us Today!"
-        description="Awayme helps users to set their free hours and make every look very busy"
+        description="AwayMe helps users set their free hours to make every day look busy"
         instructions="Create your account to get started"
         credentials="Sign up using Google"
         options="Already have an account?"
-        checkin="Login"
+        checkin="Log in"
         signInButton={<GoogleSignInButton />}
       />
     </div>

@@ -18,10 +18,10 @@ export default function LoginPage() {
     <div className="w-full overflow-y-auto bg-gradient-to-br from-gradientColor1 to-gradientColor2 py-4">
       <Cards
         message="Welcome Back!"
-        description="Awayme helps users to set their free hours and make every look very busy"
-        instructions="Please login to your account"
-        credentials="Login using Google"
-        options="Do not have an account?"
+        description="AwayMe helps users set their free hours to make every day look busy"
+        instructions="Please log in to your account"
+        credentials="Log in using Google"
+        options="New to AwayMe?"
         checkin="Sign up"
         signInButton={<GoogleSignInButton />}
       />
