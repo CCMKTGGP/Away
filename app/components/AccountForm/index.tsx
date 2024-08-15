@@ -76,15 +76,6 @@ const Form = () => {
           className="w-full px-3 py-2 mb-8 border border-black rounded-xl focus:outline-none focus:ring-2 focus:ring-accent bg-gradientColor1 text-black font-medium"
         />
       </div>
-      <div className="flex justify-start">
-        <Button
-          buttonText={'View Calendar'}
-          buttonClassName={'bg-accent text-white py-2 px-4 rounded mr-2 drop-shadow-lg'}
-          onClick={() => {
-            router.push("/view-calendar");
-          }}
-        />
-      </div>
     </form>
   );
 };
