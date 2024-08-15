@@ -99,7 +99,7 @@ export default function FillCalendar() {
                 alt="Arrow left icon"
                 className="w-[20px]"
               />
-              <p className="text-sm leading-sm text-heading">View Calendar</p>
+              <p className="text-lg font-medium leading-sm text-heading">View Calendar</p>
             </div>
           </Link>
         </div>
