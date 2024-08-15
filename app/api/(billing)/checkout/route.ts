@@ -5,12 +5,15 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY!);
 
+// handles POST requests to create a Stripe checkout session
 export async function POST(req: NextRequest) {
   const { plan, userId } = await req.json();
+
 
   let priceId: string | undefined;
   let mode: any;
 
+  // determine priceId and mode based on the selected plan
   switch (plan) {
     case "lifetime":
       priceId = process.env.STRIPE_PRICE_ID_LIFETIME;
@@ -25,10 +28,11 @@ export async function POST(req: NextRequest) {
       mode = PAYMENT_CONSTANTS.SUBSCRIPTION_MODE;
       break;
     default:
+      // return an error if the plan type is invalid
       return NextResponse.json({ error: "Invalid plan type" }, { status: 400 });
   }
 
-  // Validate that priceId is not undefined
+  // validate that priceId is not undefined
   if (!priceId) {
     return NextResponse.json(
       { error: "Price ID not defined for the selected plan" },
@@ -37,11 +41,13 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    // create metadata object to pass user information and plan type
     const metadata = {
-      userId: String(userId), // Ensure it's a string
+      userId: String(userId), 
       planType: String(plan),
     };
 
+    // create a Stripe checkout session with the specified parameters
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -53,11 +59,13 @@ export async function POST(req: NextRequest) {
       billing_address_collection: "required",
       success_url: `${process.env.BASE_URL}/payment-success`,
       cancel_url: `${process.env.BASE_URL}/account`,
-      metadata, // Attach metadata here
+      metadata, // attaching metadata to session
     });
 
     return NextResponse.json({ sessionUrl: session.url, metadata: metadata });
   } catch (error) {
+
+    // handle any errors that occur during the session creation
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
