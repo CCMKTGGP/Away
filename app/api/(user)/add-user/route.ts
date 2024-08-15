@@ -4,12 +4,13 @@ import { NextRequest, NextResponse } from "next/server";
 import ConnectDB from "@/lib/mongodb";
 import User from "@/models/User";
 
-// Function to handle POST requests
+// handles incoming POST requests to add a new user to the database
 export async function POST(req: NextRequest) {
   try {
+
     await ConnectDB(); // Connect to the database
 
-    // Extract data from request body
+    // parse and extract user data (email, first name, last name) from the request body
     const { email, first_name, last_name } = await req.json();
 
     // Validate email and name
@@ -21,14 +22,14 @@ export async function POST(req: NextRequest) {
       return new NextResponse(JSON.stringify({ error: "Name is required!" }), { status: 400 });
     }
 
-    // Check if the user already exists in the database
+    // query the database to check if a user with the same email already exists
     const isExistingUser = await User.findOne({ email });
 
     if (isExistingUser) {
       return new NextResponse(JSON.stringify("User already exists"), { status: 200 });
     }
 
-    // If user is new, create a new user object
+    // create a new user object if the email is not already registered
     const newUser = new User({
       email,
       first_name,

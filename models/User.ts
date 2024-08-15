@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
-// User interface
+// user interface
 interface IUser extends Document {
   email: string;
   first_name: string;
@@ -9,6 +9,8 @@ interface IUser extends Document {
   planType: string;
 }
 
+
+// user schema definition
 const UserSchema: Schema<IUser> = new Schema({
   email: { type: String, required: true, unique: true },
   first_name: { type: String, required: true },
