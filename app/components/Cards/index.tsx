@@ -41,10 +41,11 @@ export default function Cards({
               <span>
                 <Link
                   className="font-open-sans font-bold text-20 leading-27.24 text-accent text-center underline"
-                  href={checkin === "Login" ? "/login" : "/sign-up"}
+                  href={checkin === "Sign up" ? "/sign-up" : checkin === "Log in" ? "/login" : "#"}
                 >
                   {checkin}
                 </Link>
+
               </span>
             </p>
             <br />
