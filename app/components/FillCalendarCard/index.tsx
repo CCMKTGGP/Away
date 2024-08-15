@@ -12,13 +12,13 @@ export default function FillCalendarCard(props: IFillCalendarCardProps) {
             Fill Calendar
           </h1>
           <p className="text-base leading-base text-secondaryHeading">
-            only 20% fill is available on Free version
+            Only 20% fill is available on Free version
           </p>
         </div>
         <div className="inline">
           <div className="flex items-center gap-8">
             <Button
-              buttonText="Re Populate"
+              buttonText="Repopulate"
               buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-hover text-accent text-base leading-base"
               onClick={() => onReFill()}
             />
