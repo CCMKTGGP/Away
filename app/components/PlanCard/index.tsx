@@ -31,7 +31,7 @@ const PlanDetails: React.FC = () => {
             key={index}
             className="w-[320px] p-6 bg-white shadow-card rounded-[16px]"
           >
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col items-center gap-6">
               <p className="text-lg font-bold text-heading">{name}</p>
               {!isPro && (
                 <div className="inline-block text-sm px-4 py-2 rounded-[12px] bg-heading text-white font-bold">
@@ -50,11 +50,13 @@ const PlanDetails: React.FC = () => {
               ))}
             </div>
             {isPro ? (
-              <Button
-                buttonText="Upgrade Now"
-                buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-accent hover:bg-hover text-white hover:text-accent text-base leading-base"
-                onClick={() => console.log("Call the stripe api here!")}
-              />
+              <div className="flex justify-center">
+                <Button
+                  buttonText="Upgrade Now"
+                  buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-accent hover:bg-hover text-white hover:text-accent text-base leading-base"
+                  onClick={() => console.log("Call the stripe api here!")}
+                />
+              </div>
             ) : (
               ""
             )}
