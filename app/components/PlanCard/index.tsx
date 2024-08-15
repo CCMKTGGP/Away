@@ -7,7 +7,6 @@ interface Plan {
 
 const PlanDetails: React.FC = () => {
   const [plans, setPlans] = useState<Plan[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -17,17 +16,11 @@ const PlanDetails: React.FC = () => {
         setPlans(data);
       } catch (error) {
         console.error("Error fetching plan details:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchPlans();
   }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="flex justify-center space-x-4">
