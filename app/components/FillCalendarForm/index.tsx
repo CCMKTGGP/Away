@@ -79,7 +79,7 @@ export default function FillCalendarForm(props: IFillCalendarFormProps) {
           {areEventsPopulated ? (
             <div className="flex items-center gap-8">
               <Button
-                buttonText="Repopulate"
+                buttonText="Start Over"
                 buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-hover text-accent text-base leading-base"
                 onClick={() => onReFill()}
               />

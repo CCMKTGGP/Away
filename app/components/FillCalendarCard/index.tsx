@@ -18,7 +18,7 @@ export default function FillCalendarCard(props: IFillCalendarCardProps) {
               onClick={() => onCancel()}
             />
             <Button
-              buttonText="Repopulate"
+              buttonText="Start Over"
               buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-hover text-accent text-base leading-base"
               onClick={() => onReFill()}
             />
