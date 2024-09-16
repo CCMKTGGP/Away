@@ -18,7 +18,7 @@ export default function LoginPage() {
     <div className="w-full overflow-y-auto bg-gradient-to-br from-gradientColor1 to-gradientColor2 py-4">
       <Cards
         message="Welcome Back!"
-        description="AwayMe lets users control how busy their calendar appears—even when it’s not."
+        description="AwayMe lets users control how busy their calendar appears-even when it’s not."
         instructions="Please login to your account."
         credentials="Login using Google"
         options="Don't have an account?"
