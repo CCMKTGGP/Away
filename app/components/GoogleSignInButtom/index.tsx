@@ -22,7 +22,7 @@ export function GoogleSignInButton() {
   return (
     <Button
       buttonText="Continue with Google"
-      buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-accent text-white text-base leading-base"
+      buttonClassName="rounded-md shadow-button hover:shadow-buttonHover bg-green-500 text-white text-base leading-base"
       onClick={() => handleClick()}
       hasIcon
       icon={
