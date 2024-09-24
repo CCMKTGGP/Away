@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@azure/msal-browser": "^3.24.0",
+    "@azure/msal-react": "^2.1.0",
     "axios": "^1.7.2",
     "google-auth-library": "^9.11.0",
     "googleapis": "^140.0.1",
